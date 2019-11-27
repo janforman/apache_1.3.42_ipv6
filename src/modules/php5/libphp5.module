@@ -1,0 +1,11 @@
+Name: php5_module
+ConfigStart
+	RULE_WANTHSREGEX=no
+	RULE_HIDE=yes
+	PHP_LIBS="  -rdynamic -Lmodules/php5 -L../modules/php5 -L../../modules/php5 -lmodphp5    -rdynamic -lcrypt   -lresolv -lcrypt -lmcrypt -lltdl -lpng -lz -ljpeg -lcurl -lbz2 -lz -lrt -lm -ldl -lnsl  -lxml2 -lz -lm -ldl -lssl -lcrypto -lcurl -lxml2 -lz -lm -ldl -lssl -lcrypto -lxml2 -lz -lm -ldl -lcrypt -lxml2 -lz -lm -ldl -lssl -lcrypto -lcrypt  $LIBS"
+	PHP_CFLAGS="$CFLAGS -I/usr/include -I/usr/src/php-5.6.40/main -I/usr/src/php-5.6.40/Zend -I/usr/src/php-5.6.40/TSRM -I/usr/src/php-5.6.40 -I/usr/src/php-5.6.40/sapi/apache -I/usr/src/php-5.6.40/main -I/usr/src/php-5.6.40/Zend -I/usr/src/php-5.6.40/TSRM"
+	my_outfile="Makefile.config"
+	echo "PHP_CFLAGS=$PHP_CFLAGS" >>$my_outfile
+	echo "PHP_LIBS=$PHP_LIBS" >>$my_outfile
+	LIBS=$PHP_LIBS
+ConfigEnd
