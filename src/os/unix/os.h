@@ -33,7 +33,11 @@
 /* Compiler supports inline, so include the inlineable functions as
  * part of the header
  */
+#ifdef __GNUC_STDC_INLINE__
+#define INLINE extern ap_inline __attribute__((gnu_inline))
+#else
 #define INLINE extern ap_inline
+#endif
 
 INLINE int ap_os_is_path_absolute(const char *file);
 
